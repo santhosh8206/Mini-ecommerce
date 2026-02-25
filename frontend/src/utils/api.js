@@ -1,6 +1,6 @@
 export const getApiUrl = (endpoint) => {
-    // Get base URL and ensure it doesn't have a trailing slash
-    let baseUrl = (process.env.REACT_APP_API_URL || '').replace(/\/$/, '');
+    // Get base URL and ensure it doesn't have a trailing slash or spaces
+    let baseUrl = (process.env.REACT_APP_API_URL || '').trim().replace(/\/$/, '');
 
     // Ensure endpoint has a leading slash
     let path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
