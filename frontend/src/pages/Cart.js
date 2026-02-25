@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import { getApiUrl } from '../utils/api';
 
 export default function Cart({ cartItems, setCartItems }) {
     const [complete, setComplete] = useState(false)
@@ -33,7 +34,7 @@ export default function Cart({ cartItems, setCartItems }) {
     }
 
     function palceOrderHandler() {
-        fetch(process.env.REACT_APP_API_URL + '/order', {
+        fetch(getApiUrl('/order'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(cartItems), // ✅ send array directly

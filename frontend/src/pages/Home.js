@@ -2,21 +2,24 @@ import React, { Fragment, useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard'
 import { useSearchParams } from 'react-router-dom'
 import ProductList from './ProductList';
+import { getApiUrl } from '../utils/api';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [mobiles, setMobiles] = useState([]);
   const [searchParams] = useSearchParams();
+  console.log("API URL BASE:", process.env.REACT_APP_API_URL);
+  console.log("FETCH URL EXAMPLE:", getApiUrl('/products'));
   console.log(mobiles._id);
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL + '/products?' + searchParams)
+    fetch(getApiUrl('/products?') + searchParams)
       .then(res => res.json())
       .then(res => setProducts(res.products || [])) // ✅ safe fallback
       .catch(err => console.error(err)); // optional: log errors
   }, [searchParams]);
   useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL + '/mobiles?' + searchParams)
+    fetch(getApiUrl('/mobiles?') + searchParams)
       .then(res => res.json())
       .then(res => setMobiles(res.mobiles))
       .catch(err => console.error(err));

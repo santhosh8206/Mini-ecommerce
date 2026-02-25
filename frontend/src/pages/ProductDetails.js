@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { getApiUrl } from "../utils/api";
 
 
 export default function ProductDetails({ cartItems, setCartItems }) {
@@ -11,7 +12,7 @@ export default function ProductDetails({ cartItems, setCartItems }) {
     useEffect(() => {
         if (!id) return; // ✅ DO NOT FETCH if id is undefined
 
-        fetch(process.env.REACT_APP_API_URL + '/products/' + id)
+        fetch(getApiUrl('/products/') + id)
             .then(res => res.json())
             .then(res => setProduct(res.product))
             .catch(err => console.error(err));
