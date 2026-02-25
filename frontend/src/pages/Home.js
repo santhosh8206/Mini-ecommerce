@@ -16,7 +16,7 @@ export default function Home() {
       .catch(err => console.error(err)); // optional: log errors
   }, [searchParams]);
   useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL + `/mobiles?` + searchParams)
+    fetch(process.env.REACT_APP_API_URL + '/mobiles?' + searchParams)
       .then(res => res.json())
       .then(res => setMobiles(res.mobiles))
       .catch(err => console.error(err));

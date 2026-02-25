@@ -55,8 +55,8 @@ app.use(async (req, res, next) => {
     }
 });
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 // API Routes
 app.use('/api/v1/', products);
