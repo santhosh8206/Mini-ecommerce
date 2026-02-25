@@ -5,11 +5,11 @@ import { toast } from 'react-toastify';
 export default function Cart({cartItems , setCartItems}) {
     const[complete,setComplete]=useState(false)
     function incrementQty(item){
-        if (item.product.stock == item.qty) {
+        if (item.product.stock === item.qty) {
             return;
         }
         const updateitems=cartItems.map((i) => {
-            if (i.product._id == item.product._id) {
+            if (i.product._id === item.product._id) {
                 i.qty++
             }
             return i ;
@@ -19,7 +19,7 @@ export default function Cart({cartItems , setCartItems}) {
     function decrementQty(item) {
         if (item.qty > 1) {
             const updateitems=cartItems.map((i) => {
-              if (i.product._id == item.product._id) {
+              if (i.product._id === item.product._id) {
                   i.qty--
               }
               return i ;
@@ -28,12 +28,7 @@ export default function Cart({cartItems , setCartItems}) {
         }
     }
     function removedItemCard(item){
-          const updateitems=cartItems.filter((i) => {
-              if (i.product._id !== item.product._id) {
-                return true;
-              }
-
-          })
+          const updateitems = cartItems.filter((i) => i.product._id !== item.product._id);
           setCartItems(updateitems)
     }
 
