@@ -1,0 +1,284 @@
+[
+  {
+    "name": "iPhone 14 Pro",
+    "price": "1299",
+    "description": "Apple iPhone 14 Pro with A16 Bionic chip and 48MP camera",
+    "ratings": "4.8",
+    "images": [
+      { "image": "iphone14pro-front.jpg" },
+      { "image": "iphone14pro-back.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Apple Store",
+    "stock": "25",
+    "num0fReviews": "1540",
+    "createdAt": "2025-01-05"
+  },
+  {
+    "name": "Samsung Galaxy S23 Ultra",
+    "price": "1199",
+    "description": "Samsung flagship phone with 200MP camera and S-Pen",
+    "ratings": "4.7",
+    "images": [
+      { "image": "s23ultra-front.jpg" },
+      { "image": "s23ultra-back.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Samsung Official",
+    "stock": "40",
+    "num0fReviews": "1320",
+    "createdAt": "2025-01-06"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "price": "999",
+    "description": "Google Pixel 8 Pro with Tensor G3 and AI camera features",
+    "ratings": "4.6",
+    "images": [
+      { "image": "pixel8pro-front.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Google Store",
+    "stock": "30",
+    "num0fReviews": "980",
+    "createdAt": "2025-01-07"
+  },
+  {
+    "name": "OnePlus 12",
+    "price": "799",
+    "description": "OnePlus 12 with Snapdragon 8 Gen 3 and 120Hz display",
+    "ratings": "4.5",
+    "images": [
+      { "image": "oneplus12-front.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "OnePlus",
+    "stock": "50",
+    "num0fReviews": "860",
+    "createdAt": "2025-01-08"
+  },
+  {
+    "name": "Xiaomi 13 Pro",
+    "price": "749",
+    "description": "Xiaomi 13 Pro with Leica camera and AMOLED display",
+    "ratings": "4.4",
+    "images": [
+      { "image": "xiaomi13pro.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Mi Store",
+    "stock": "45",
+    "num0fReviews": "720",
+    "createdAt": "2025-01-09"
+  },
+  {
+    "name": "Realme GT 5",
+    "price": "599",
+    "description": "Realme GT 5 performance-focused smartphone",
+    "ratings": "4.3",
+    "images": [
+      { "image": "realmegt5.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Realme Official",
+    "stock": "60",
+    "num0fReviews": "640",
+    "createdAt": "2025-01-10"
+  },
+  {
+    "name": "Vivo X100 Pro",
+    "price": "899",
+    "description": "Vivo X100 Pro with Zeiss camera and fast charging",
+    "ratings": "4.5",
+    "images": [
+      { "image": "vivox100pro.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Vivo Store",
+    "stock": "35",
+    "num0fReviews": "540",
+    "createdAt": "2025-01-11"
+  },
+  {
+    "name": "Oppo Find X6 Pro",
+    "price": "899",
+    "description": "Oppo Find X6 Pro premium design with Hasselblad camera",
+    "ratings": "4.4",
+    "images": [
+      { "image": "oppofindx6pro.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Oppo Official",
+    "stock": "28",
+    "num0fReviews": "480",
+    "createdAt": "2025-01-12"
+  },
+  {
+    "name": "iPhone 13",
+    "price": "699",
+    "description": "Apple iPhone 13 with A15 Bionic and dual camera",
+    "ratings": "4.7",
+    "images": [
+      { "image": "iphone13.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Apple Store",
+    "stock": "55",
+    "num0fReviews": "2100",
+    "createdAt": "2025-01-13"
+  },
+  {
+    "name": "Samsung Galaxy A54",
+    "price": "449",
+    "description": "Samsung Galaxy A54 mid-range smartphone",
+    "ratings": "4.3",
+    "images": [
+      { "image": "galaxya54.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Samsung Official",
+    "stock": "70",
+    "num0fReviews": "890",
+    "createdAt": "2025-01-14"
+  },
+  {
+    "name": "Redmi Note 13 Pro",
+    "price": "399",
+    "description": "Redmi Note 13 Pro with 200MP camera",
+    "ratings": "4.4",
+    "images": [
+      { "image": "redminote13pro.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Mi Store",
+    "stock": "90",
+    "num0fReviews": "1020",
+    "createdAt": "2025-01-15"
+  },
+  {
+    "name": "Nothing Phone 2",
+    "price": "649",
+    "description": "Nothing Phone 2 with Glyph interface and clean UI",
+    "ratings": "4.2",
+    "images": [
+      { "image": "nothingphone2.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Nothing Tech",
+    "stock": "40",
+    "num0fReviews": "560",
+    "createdAt": "2025-01-16"
+  },
+  {
+    "name": "Motorola Edge 40 Pro",
+    "price": "699",
+    "description": "Motorola Edge 40 Pro with Snapdragon chipset",
+    "ratings": "4.3",
+    "images": [
+      { "image": "edge40pro.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Motorola",
+    "stock": "33",
+    "num0fReviews": "410",
+    "createdAt": "2025-01-17"
+  },
+  {
+    "name": "Asus ROG Phone 7",
+    "price": "999",
+    "description": "Gaming phone with advanced cooling system",
+    "ratings": "4.6",
+    "images": [
+      { "image": "rogphone7.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Asus",
+    "stock": "20",
+    "num0fReviews": "390",
+    "createdAt": "2025-01-18"
+  },
+  {
+    "name": "Sony Xperia 1 V",
+    "price": "1099",
+    "description": "Sony Xperia 1 V with professional-grade camera",
+    "ratings": "4.4",
+    "images": [
+      { "image": "xperia1v.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Sony Store",
+    "stock": "18",
+    "num0fReviews": "270",
+    "createdAt": "2025-01-19"
+  },
+  {
+    "name": "Infinix Zero 30",
+    "price": "299",
+    "description": "Infinix Zero 30 budget smartphone with AMOLED display",
+    "ratings": "4.1",
+    "images": [
+      { "image": "zero30.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Infinix",
+    "stock": "120",
+    "num0fReviews": "650",
+    "createdAt": "2025-01-20"
+  },
+  {
+    "name": "Tecno Phantom X2",
+    "price": "499",
+    "description": "Tecno Phantom X2 with unique camera design",
+    "ratings": "4.0",
+    "images": [
+      { "image": "phantomx2.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Tecno",
+    "stock": "65",
+    "num0fReviews": "310",
+    "createdAt": "2025-01-21"
+  },
+  {
+    "name": "Nokia G42",
+    "price": "249",
+    "description": "Nokia G42 durable smartphone with clean Android",
+    "ratings": "4.0",
+    "images": [
+      { "image": "nokiag42.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Nokia Store",
+    "stock": "85",
+    "num0fReviews": "290",
+    "createdAt": "2025-01-22"
+  },
+  {
+    "name": "Lava Agni 2",
+    "price": "299",
+    "description": "Lava Agni 2 5G made-in-India smartphone",
+    "ratings": "4.1",
+    "images": [
+      { "image": "lavaagni2.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "Lava International",
+    "stock": "75",
+    "num0fReviews": "260",
+    "createdAt": "2025-01-23"
+  },
+  {
+    "name": "iQOO Neo 7",
+    "price": "399",
+    "description": "iQOO Neo 7 performance-oriented smartphone",
+    "ratings": "4.3",
+    "images": [
+      { "image": "iqooneo7.jpg" }
+    ],
+    "category": "Mobile Phones",
+    "seller": "iQOO",
+    "stock": "68",
+    "num0fReviews": "520",
+    "createdAt": "2025-01-24"
+  }
+]

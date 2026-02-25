@@ -9,6 +9,7 @@ const connectDatabase = require('./config/connectDatabase');
 
 const products = require('./routes/product');
 const order =require('./routes/order');
+const mobiles=require('./routes/mobiles')
 
 connectDatabase();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(cors());
 app.use('/api/v1/', products);
 app.use('/api/v1/', order);
+app.use('/api/v1/', mobiles);
 
 
 app.listen(process.env.PORT, () => {

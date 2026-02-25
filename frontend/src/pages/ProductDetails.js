@@ -18,7 +18,7 @@ export default function ProductDetails({ cartItems, setCartItems }) {
     }, [id]);
 
     function addToCart() {
-        const itemExist=cartItems.find((item)=> item.product._id === product._id)
+        const itemExist=cartItems.find((item)=> item.product._id === product._id )
         if (!itemExist) { 
             const newItem = { product, qty };
             setCartItems((state) => [...state, newItem]);
@@ -38,20 +38,19 @@ export default function ProductDetails({ cartItems, setCartItems }) {
         }
     }
     return (
-        product && <div className="container container-fluid">
-            <div className="row f-flex justify-content-around">
-                <div className="col-12 col-lg-5 img-fluid" id="product_image">
-                    <img src={product.images[0].image} alt="sdf" height="500" width="500" />
+        product && <div className="container container-fluid py-5 ">
+            <div className="row f-flex justify-content-around mt-5">
+                <div className="col-12 col-lg-5  img-fluid" id="product_image">
+                    <img src={product.images[0].image} alt="sdf" />
                 </div>
-                <div className="col-12 col-lg-5 mt-5">
+                <div className="col-12 col-lg-5 mt-5 p-3" >
                     <h3>{product.name}</h3>
-                    <p id="product_id">{product._id}</p>
                     <hr />
                     <div className="rating-outer">
                         <div className="rating-inner" style={{ width: `${product.ratings / 5 * 100}%` }}></div>
                     </div>
                     <hr />
-                    <p id="product_price">{product.price}</p>
+                    <p id="product_price">&#x20B9;{product.price}</p>
                     <div className="stockCounter d-inline">
                         <div className="stockCounter d-inline">
                             <span

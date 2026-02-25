@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Header({cartItems}) {
   return (
     <div>
-      <nav className="navbar row">
+      <nav className="navbar row fixed-top">
                 <div className="col-12 col-md-3">
                     <div className="navbar-brand">
                         <Link to={'/'}>

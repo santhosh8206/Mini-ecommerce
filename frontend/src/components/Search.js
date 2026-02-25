@@ -20,7 +20,7 @@ export default function Search() {
                     placeholder="Enter Product Name ..."
                 />
                 <div className="input-group-append">
-                    <button  onClick={searchHandler} id="search_btn" className="btn">
+                    <button  onClick={searchHandler} id="search_btn" className="btn shadow">
                         <i className="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </div>
