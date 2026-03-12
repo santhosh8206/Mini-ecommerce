@@ -18,7 +18,8 @@ export default function Home() {
 
   useEffect(() => {
     if (keyword) {
-      fetch(getApiUrl('/products?') + searchParams)
+      const url = getApiUrl('/products?') + new URLSearchParams(searchParams).toString();
+      fetch(url)
         .then(res => res.json())
         .then(res => setProducts(res))
         .catch(err => console.error(err));

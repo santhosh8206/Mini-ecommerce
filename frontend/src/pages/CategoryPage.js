@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import { getApiUrl } from '../utils/api'
 
@@ -12,7 +12,7 @@ export default function CategoryPage() {
         setLoading(true);
         // Convert category-name back to Title Case if needed, or send as is
         const categoryName = category.replace(/-/g, ' ');
-        fetch(getApiUrl(`/products/category/${categoryName}`))
+        fetch(getApiUrl(`/products/category/${encodeURIComponent(categoryName)}`))
             .then(res => res.json())
             .then(res => {
                 setProducts(res);
