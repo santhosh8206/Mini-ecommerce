@@ -17,13 +17,15 @@ export default function Home() {
   const keyword = searchParams.get('keyword');
 
   useEffect(() => {
+    let url = getApiUrl('/products');
     if (keyword) {
-      const url = getApiUrl('/products?') + new URLSearchParams(searchParams).toString();
-      fetch(url)
-        .then(res => res.json())
-        .then(res => setProducts(res))
-        .catch(err => console.error(err));
+      url += '?' + new URLSearchParams(searchParams).toString();
     }
+
+    fetch(url)
+      .then(res => res.json())
+      .then(res => setProducts(res))
+      .catch(err => console.error('Fetch error:', err));
   }, [searchParams, keyword]);
 
   return (
@@ -59,7 +61,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                 {categories.map((category) => (
                   <Link
                     key={category.name}
@@ -84,6 +86,15 @@ export default function Home() {
                     </div>
                   </Link>
                 ))}
+              </div>
+
+              <div className="mt-16">
+                <h2 className="text-3xl font-bold text-amazon-blue mb-8 border-l-4 border-amazon-yellow pl-4">Featured Products</h2>
+                <div className="flex flex-wrap -mx-4">
+                  {products.slice(0, 8).map(product => (
+                    <ProductCard key={product._id} product={product} />
+                  ))}
+                </div>
               </div>
             </>
           )}

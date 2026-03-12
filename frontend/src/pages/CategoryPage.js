@@ -13,13 +13,17 @@ export default function CategoryPage() {
         // Convert category-name back to Title Case if needed, or send as is
         const categoryName = category.replace(/-/g, ' ');
         fetch(getApiUrl(`/products/category/${encodeURIComponent(categoryName)}`))
-            .then(res => res.json())
             .then(res => {
+                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                return res.json();
+            })
+            .then(res => {
+                console.log('Fetched products for category:', categoryName, res);
                 setProducts(res);
                 setLoading(false);
             })
             .catch(err => {
-                console.error(err);
+                console.error('Category fetch error:', err);
                 setLoading(false);
             });
     }, [category]);
