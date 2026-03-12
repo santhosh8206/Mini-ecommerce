@@ -10,7 +10,8 @@ export default function ProductCard({ product }) {
                     <img
                         alt={product.name}
                         className="max-h-full max-w-full object-contain transform group-hover:scale-110 transition-transform duration-500"
-                        src={product.image || product.images?.[0]?.image || '/images/placeholder.jpg'}
+                        src={product.image || product.images?.[0]?.image || 'https://placehold.co/600x400?text=No+Image'}
+                        onError={(e) => { e.target.src = 'https://placehold.co/600x400?text=No+Image'; }}
                     />
                 </div>
                 <div className="p-4 flex flex-col flex-grow">

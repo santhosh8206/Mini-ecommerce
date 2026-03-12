@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
     customerName: String,
+    shippingAddress: String,
     products: [
         {
             productId: String,
@@ -9,6 +10,7 @@ const orderSchema = new mongoose.Schema({
         }
     ],
     totalAmount: Number,
+    paymentMethod: String,
     paymentStatus: String,
     orderDate: {
         type: Date,

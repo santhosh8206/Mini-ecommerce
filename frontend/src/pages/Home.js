@@ -5,11 +5,11 @@ import { getApiUrl } from '../utils/api'
 import axios from 'axios'
 
 const categories = [
-  { name: 'Electronics', image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=500&q=80', description: 'Mobiles, Laptops, Headphones' },
-  { name: 'Clothing', image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=500&q=80', description: 'T-shirts, Jeans' },
-  { name: 'Books', image: 'https://images.unsplash.com/photo-1524578271613-d550eeba8485?w=500&q=80', description: 'Programming, Story Books' },
-  { name: 'Home Appliances', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500&q=80', description: 'Mixers, Iron Boxes' },
-  { name: 'Accessories', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80', description: 'Watches, Bags' },
+  { name: 'Electronics', image: 'https://m.media-amazon.com/images/I/71ZOtNdaZCL._SX679_.jpg', description: 'Mobiles, Laptops, Headphones' },
+  { name: 'Clothing', image: 'https://m.media-amazon.com/images/I/71F7O7n0O6L._UY879_.jpg', description: 'T-shirts, Jeans' },
+  { name: 'Books', image: 'https://m.media-amazon.com/images/I/51A1O9X2L._SX679_.jpg', description: 'Programming, Story Books' },
+  { name: 'Home Appliances', image: 'https://m.media-amazon.com/images/I/61f8X9S+0+L._SX679_.jpg', description: 'Mixers, Iron Boxes' },
+  { name: 'Accessories', image: 'https://m.media-amazon.com/images/I/71R6U7v7qWL._SX679_.jpg', description: 'Watches, Bags' },
 ];
 
 export default function Home() {
@@ -74,6 +74,7 @@ export default function Home() {
                       src={category.image}
                       alt={category.name}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => { e.target.src = 'https://placehold.co/600x400?text=Category'; }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-amazon-blue via-amazon-blue/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
 

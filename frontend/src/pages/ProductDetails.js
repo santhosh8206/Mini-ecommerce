@@ -47,9 +47,10 @@ export default function ProductDetails({ cartItems, setCartItems }) {
                             {/* Product Image */}
                             <div className="w-full lg:w-1/2 flex items-center justify-center bg-white rounded-xl border border-gray-100 p-4">
                                 <img
-                                    src={product.image || product.images?.[0]?.image || '/images/placeholder.jpg'}
+                                    src={product.image || product.images?.[0]?.image || 'https://placehold.co/600x400?text=No+Image'}
                                     alt={product.name}
                                     className="max-h-[500px] object-contain transform hover:scale-105 transition-transform duration-500"
+                                    onError={(e) => { e.target.src = 'https://placehold.co/600x400?text=No+Image'; }}
                                 />
                             </div>
 
