@@ -72,7 +72,7 @@ export default function Cart({ cartItems, setCartItems }) {
                                     <div key={item.product._id} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col sm:flex-row items-center gap-6 group hover:shadow-md transition-shadow">
                                         <div className="w-32 h-32 flex-shrink-0 bg-white rounded-lg border border-gray-50 p-2">
                                             <img
-                                                src={item.product.images[0].image}
+                                                src={item.product.image || item.product.images?.[0]?.image || '/images/placeholder.jpg'}
                                                 alt={item.product.name}
                                                 className="w-full h-full object-contain transform group-hover:scale-105 transition-transform"
                                             />
