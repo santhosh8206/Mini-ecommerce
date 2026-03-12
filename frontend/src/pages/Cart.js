@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { getApiUrl } from '../utils/api';
+import axios from 'axios';
 
 export default function Cart({ cartItems, setCartItems }) {
     const [complete, setComplete] = useState(false)
@@ -34,24 +35,15 @@ export default function Cart({ cartItems, setCartItems }) {
     }
 
     function palceOrderHandler() {
-        fetch(getApiUrl('/order'), {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(cartItems), // ✅ send array directly
-        })
+        axios.post(getApiUrl('/order'), cartItems)
             .then(res => {
-                if (!res.ok) throw new Error('Failed to place order');
-                return res.json();
-            })
-            .then(data => {
-                // Removed debug log
                 setCartItems([]);
                 setComplete(true);
                 toast.success('Order placed successfully!');
             })
             .catch(err => {
-                // Removed debug log
                 toast.error('Failed to place order');
+                console.error('Order placement Axios error:', err.message);
             });
     }
 

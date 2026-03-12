@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import { getApiUrl } from '../utils/api'
+import axios from 'axios'
 
 const categories = [
   { name: 'Electronics', image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=500&q=80', description: 'Mobiles, Laptops, Headphones' },
@@ -17,15 +18,16 @@ export default function Home() {
   const keyword = searchParams.get('keyword');
 
   useEffect(() => {
-    let url = getApiUrl('/products');
-    if (keyword) {
-      url += '?' + new URLSearchParams(searchParams).toString();
-    }
+    const url = getApiUrl('/products') + (keyword ? '?' + new URLSearchParams(searchParams).toString() : '');
 
-    fetch(url)
-      .then(res => res.json())
-      .then(res => setProducts(res))
-      .catch(err => console.error('Fetch error:', err));
+    console.log('Fetching with Axios:', url);
+    axios.get(url)
+      .then(res => {
+        setProducts(res.data);
+      })
+      .catch(err => {
+        console.error('Axios Fetch error:', err.response?.data || err.message);
+      });
   }, [searchParams, keyword]);
 
   return (

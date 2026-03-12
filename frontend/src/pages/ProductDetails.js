@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getApiUrl } from "../utils/api";
+import axios from 'axios';
 
 
 export default function ProductDetails({ cartItems, setCartItems }) {
@@ -10,12 +11,11 @@ export default function ProductDetails({ cartItems, setCartItems }) {
     const { id } = useParams();
 
     useEffect(() => {
-        if (!id) return; // ✅ DO NOT FETCH if id is undefined
+        if (!id) return;
 
-        fetch(getApiUrl('/product/') + id)
-            .then(res => res.json())
-            .then(res => setProduct(res))
-            .catch(err => console.error(err));
+        axios.get(getApiUrl('/product/') + id)
+            .then(res => setProduct(res.data))
+            .catch(err => console.error('Product Details Axios error:', err.message));
     }, [id]);
 
     function addToCart() {

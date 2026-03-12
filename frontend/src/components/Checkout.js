@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getApiUrl } from '../utils/api';
+import axios from 'axios';
 
 export default function Checkout({ cartItems, setCartItems }) {
     const navigate = useNavigate();
@@ -43,13 +44,9 @@ export default function Checkout({ cartItems, setCartItems }) {
                         paymentStatus: 'Paid'
                     };
 
-                    const res = await fetch(getApiUrl('/order'), {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(orderData)
-                    });
+                    const res = await axios.post(getApiUrl('/order'), orderData);
 
-                    if (res.ok) {
+                    if (res.status === 200 || res.status === 201) {
                         toast.success("Payment Successful & Order Placed!");
                         setCartItems([]);
                         navigate('/');

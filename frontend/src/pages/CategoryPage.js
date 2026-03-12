@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import { getApiUrl } from '../utils/api'
+import axios from 'axios'
 
 export default function CategoryPage() {
     const { category } = useParams();
@@ -10,20 +11,17 @@ export default function CategoryPage() {
 
     useEffect(() => {
         setLoading(true);
-        // Convert category-name back to Title Case if needed, or send as is
         const categoryName = category.replace(/-/g, ' ');
-        fetch(getApiUrl(`/products/category/${encodeURIComponent(categoryName)}`))
+        const url = getApiUrl(`/products/category/${encodeURIComponent(categoryName)}`);
+
+        console.log('Fetching Category with Axios:', url);
+        axios.get(url)
             .then(res => {
-                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-                return res.json();
-            })
-            .then(res => {
-                console.log('Fetched products for category:', categoryName, res);
-                setProducts(res);
+                setProducts(res.data);
                 setLoading(false);
             })
             .catch(err => {
-                console.error('Category fetch error:', err);
+                console.error('Category Axios error:', err.response?.data || err.message);
                 setLoading(false);
             });
     }, [category]);
