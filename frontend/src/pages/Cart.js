@@ -145,12 +145,12 @@ export default function Cart({ cartItems, setCartItems }) {
                                         </span>
                                     </div>
 
-                                    <button
-                                        onClick={palceOrderHandler}
-                                        className="w-full bg-amazon-yellow hover:bg-primary-dark text-amazon-blue font-bold py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5"
+                                    <Link
+                                        to="/checkout"
+                                        className="w-full bg-amazon-yellow hover:bg-yellow-500 text-amazon-blue font-bold py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 flex items-center justify-center"
                                     >
-                                        Proceed to Buy
-                                    </button>
+                                        Proceed to Checkout
+                                    </Link>
                                 </div>
                             </div>
                         </div>

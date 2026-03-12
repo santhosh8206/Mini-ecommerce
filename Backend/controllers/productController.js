@@ -1,33 +1,26 @@
-const productModel = require("../models/productModels")
 const ProductModel = require("../models/productModels")
 
 //Get products API  - /api/v1/products
 exports.getProducts = async (req, res, next) => {
-    const query = req.query.keyword ? {
-        name: {
-            $regex: req.query.keyword,
-            $options: 'i'   // ✅ fixed typo: $option → $options
-        }
-    } : {};
-
-    const products = await ProductModel.find(query);
-    res.json({
-        success: true,
-        products
-    });
+  const products = await ProductModel.find();
+  res.json(products);
 };
 
-//Get single products API  - /api/v1/product/:id
+//Get products by category - /api/v1/products/:category
+exports.getProductsByCategory = async (req, res, next) => {
+  const products = await ProductModel.find({
+    category: req.params.category
+  });
+  res.json(products);
+};
+
+//Get single product API  - /api/v1/product/:id
 exports.getSingleProduct = async (req, res, next) => {
   try {
-    const product = await productModel.findById(req.params.id); // ✅ removed invalid 'ID'
-
-    res.json({
-      success: true,
-      product
-    });
+    const product = await ProductModel.findById(req.params.id);
+    res.json(product);
   } catch (error) {
-    res.json({
+    res.status(404).json({
       success: false,
       message: error.message
     });

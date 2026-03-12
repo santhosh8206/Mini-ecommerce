@@ -1,26 +1,12 @@
-const orderModel = require("../models/orderModels");
-const productModel = require("../models/productModels");
+const OrderModel = require("../models/orderModels");
 
-// create order -/api/v1/order
+// create order - /api/v1/order
 exports.createOrder = async (req, res, next) => {
-  const cartItems = req.body;
-  const amount = Number(
-    cartItems.reduce((acc, item) => acc + item.product.price * item.qty, 0)
-  ).toFixed(2);
-  const status = "pending";
-
-  // updating the product  
-  cartItems.forEach(async (item) => {
-    const product = await productModel.findById(item.product._id); // ✅ fixed typo + added await
-    if (product) { // ✅ safety check
-      product.stock = product.stock - item.qty;
-      await product.save();
-    }
-  });
-
-  const order = await orderModel.create({ cartItems, amount, status });
-  res.json({
-    success: true,
-    order,
-  });
+  try {
+    const order = new OrderModel(req.body);
+    await order.save();
+    res.json({ message: "Order successful", order });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to place order", error: error.message });
+  }
 };

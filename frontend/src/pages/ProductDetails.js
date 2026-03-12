@@ -12,9 +12,9 @@ export default function ProductDetails({ cartItems, setCartItems }) {
     useEffect(() => {
         if (!id) return; // ✅ DO NOT FETCH if id is undefined
 
-        fetch(getApiUrl('/products/') + id)
+        fetch(getApiUrl('/product/') + id)
             .then(res => res.json())
-            .then(res => setProduct(res.product))
+            .then(res => setProduct(res))
             .catch(err => console.error(err));
     }, [id]);
 
@@ -47,7 +47,7 @@ export default function ProductDetails({ cartItems, setCartItems }) {
                             {/* Product Image */}
                             <div className="w-full lg:w-1/2 flex items-center justify-center bg-white rounded-xl border border-gray-100 p-4">
                                 <img
-                                    src={product.images[0].image}
+                                    src={product.image || product.images?.[0]?.image || '/images/placeholder.jpg'}
                                     alt={product.name}
                                     className="max-h-[500px] object-contain transform hover:scale-105 transition-transform duration-500"
                                 />

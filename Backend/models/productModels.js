@@ -1,22 +1,14 @@
-const mangoose =require('mongoose');
+const mongoose = require('mongoose');
 
-const productSchema= new mangoose.Schema({
-    name :String,
-    price :String,
-    description :String,
-    ratings :String,
-    images :[
-        {
-            image:String
-        }
-    ],
-    category :String,
-    seller :String,
-    stock:String,
-    num0fReviews :String,
-    createdAt:String
- })
+const productSchema = new mongoose.Schema({
+    name: String,
+    price: Number,
+    description: String,
+    image: String,
+    category: String,
+    stock: Number
+});
 
-const productModel= mangoose.model('Product',productSchema);
+const productModel = mongoose.model('Product', productSchema);
 
 module.exports = productModel;

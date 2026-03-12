@@ -1,12 +1,19 @@
-const mangoose =require('mongoose')
+const mongoose = require('mongoose');
 
-const oderSchema=new mangoose.Schema({
-    cartItems:Array,
-    amount:String,
-    status:String,
-    createdAT:String
-})
- 
-const orderModel = mangoose.model('order',oderSchema );
+const orderSchema = new mongoose.Schema({
+    customerName: String,
+    products: [
+        {
+            productId: String,
+            quantity: Number
+        }
+    ],
+    totalAmount: Number,
+    paymentStatus: String,
+    orderDate: {
+        type: Date,
+        default: Date.now
+    }
+});
 
-module.exports  = orderModel;
+module.exports = mongoose.model("Order", orderSchema);

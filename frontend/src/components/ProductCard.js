@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
                     <img
                         alt={product.name}
                         className="max-h-full max-w-full object-contain transform group-hover:scale-110 transition-transform duration-500"
-                        src={product.images[0].image}
+                        src={product.image || product.images?.[0]?.image || '/images/placeholder.jpg'}
                     />
                 </div>
                 <div className="p-4 flex flex-col flex-grow">
