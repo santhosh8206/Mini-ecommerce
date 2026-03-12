@@ -1,1 +1,30 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Amazon Ember';
+        src: local('sans-serif');
+    }
+}
+
+body {
+    @apply font-ember text-amazon-blue bg-gray-50 antialiased;
+}
+
+.bg-amazon-blue {
+    background-color: #232f3e;
+}
+
+.text-amazon-yellow {
+    color: #febd69;
+}
+
+.bg-amazon-yellow {
+    background-color: #febd69;
+}
+
+.hover\:bg-primary-dark:hover {
+    background-color: #c4891b;
+}
