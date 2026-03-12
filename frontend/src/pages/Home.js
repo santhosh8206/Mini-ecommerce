@@ -9,8 +9,6 @@ export default function Home() {
   const [mobiles, setMobiles] = useState([]);
   const [searchParams] = useSearchParams();
   console.log("API URL BASE:", process.env.REACT_APP_API_URL);
-  console.log("FETCH URL EXAMPLE:", getApiUrl('/products'));
-  console.log(mobiles._id);
 
   useEffect(() => {
     fetch(getApiUrl('/products?') + searchParams)
@@ -27,24 +25,36 @@ export default function Home() {
 
   return (
     <Fragment>
-      <div className='mt-5 p-3'>
-        <div className='container mt-5'>
-          <h1 className='text-center' id="products_heading">Offer Deal</h1>
-          <section>
-            <div className="row">
-              <ProductList mobiles={mobiles} />
-            </div>
-          </section>
+      <div className='min-h-screen bg-gray-50 pt-20 pb-12 transition-all duration-300'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+
+          <div className="mb-12">
+            <h1 className='text-3xl font-bold text-amazon-blue border-b-2 border-amazon-yellow pb-2 mb-8 inline-block'>
+              Offer Deals
+            </h1>
+            <ProductList mobiles={mobiles} />
+          </div>
+
+          <div className="mb-12">
+            <h1 className='text-3xl font-bold text-amazon-blue border-b-2 border-amazon-yellow pb-2 mb-8 inline-block'>
+              Latest Products
+            </h1>
+            <section id="products" className="py-4">
+              <div className="flex flex-wrap -mx-4">
+                {products.length > 0 ? (
+                  products.map(product => (
+                    <ProductCard key={product._id} product={product} />
+                  ))
+                ) : (
+                  <div className="w-full text-center py-20 text-gray-500">
+                    <p className="text-xl">No products found.</p>
+                  </div>
+                )}
+              </div>
+            </section>
+          </div>
 
         </div>
-        <h1 className='text-center' id="products_heading">Latest Products</h1>
-        <section id="products" className="container mt-2">
-          <div className="row">
-            {products.map(product => ( // ✅ variable name fixed
-              <ProductCard key={product._id} product={product} />
-            ))}
-          </div>
-        </section>
       </div>
     </Fragment>
   );
