@@ -1,8 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import ProductCard from '../components/ProductCard'
-import { useSearchParams, Link } from 'react-router-dom'
-import ProductList from './ProductList';
-import { getApiUrl } from '../utils/api';
+import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
 const categories = [
   { name: 'Electronics', image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=500&q=80', description: 'Mobiles, Laptops, Headphones' },
@@ -13,24 +10,6 @@ const categories = [
 ];
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
-  const [mobiles, setMobiles] = useState([]);
-  const [searchParams] = useSearchParams();
-  console.log("API URL BASE:", process.env.REACT_APP_API_URL);
-
-  useEffect(() => {
-    fetch(getApiUrl('/products?') + searchParams)
-      .then(res => res.json())
-      .then(res => setProducts(res.products || [])) // ✅ safe fallback
-      .catch(err => console.error(err)); // optional: log errors
-  }, [searchParams]);
-  useEffect(() => {
-    fetch(getApiUrl('/mobiles?') + searchParams)
-      .then(res => res.json())
-      .then(res => setMobiles(res.mobiles))
-      .catch(err => console.error(err));
-  }, [searchParams]);
-
   return (
     <Fragment>
       <div className='min-h-screen bg-gray-50 pt-24 pb-12 transition-all duration-300'>

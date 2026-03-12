@@ -29,7 +29,6 @@ async function connectDatabase() {
         };
 
         cached.promise = mongoose.connect(process.env.DB_URL, opts).then((mongoose) => {
-            console.log('MongoDB Connected');
             return mongoose;
         });
     }
@@ -50,7 +49,6 @@ app.use(async (req, res, next) => {
         await connectDatabase();
         next();
     } catch (err) {
-        console.error('Database connection error:', err);
         res.status(500).json({ error: 'Database connection failed' });
     }
 });

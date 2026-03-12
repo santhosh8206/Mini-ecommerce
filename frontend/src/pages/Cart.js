@@ -44,13 +44,13 @@ export default function Cart({ cartItems, setCartItems }) {
                 return res.json();
             })
             .then(data => {
-                console.log("✅ Order Response:", data);
+                // Removed debug log
                 setCartItems([]);
                 setComplete(true);
                 toast.success('Order placed successfully!');
             })
             .catch(err => {
-                console.error("❌ Order Error:", err);
+                // Removed debug log
                 toast.error('Failed to place order');
             });
     }
