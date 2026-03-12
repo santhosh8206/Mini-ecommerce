@@ -9,7 +9,7 @@ exports.getProducts = async (req, res, next) => {
 //Get products by category - /api/v1/products/:category
 exports.getProductsByCategory = async (req, res, next) => {
   const products = await ProductModel.find({
-    category: req.params.category
+    category: { $regex: new RegExp(`^${req.params.category}$`, 'i') }
   });
   res.json(products);
 };

@@ -11,7 +11,6 @@ dotenv.config({ path: path.join(__dirname, '..', 'config', 'config.env') });
 // Routes
 const products = require('../routes/product');
 const order = require('../routes/order');
-const mobiles = require('../routes/mobiles');
 
 // Cached connection for serverless
 let cached = global.mongoose;
@@ -64,7 +63,6 @@ app.use(express.json());
 // API Routes
 app.use('/api/v1/', products);
 app.use('/api/v1/', order);
-app.use('/api/v1/', mobiles);
 
 // Health check
 app.get('/', (req, res) => {

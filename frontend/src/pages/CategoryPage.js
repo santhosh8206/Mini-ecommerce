@@ -29,9 +29,14 @@ export default function CategoryPage() {
             <div className='min-h-screen bg-gray-50 pt-24 pb-12 transition-all duration-300'>
                 <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
                     <div className="mb-12">
-                        <h1 className='text-3xl font-bold text-amazon-blue border-b-2 border-amazon-yellow pb-2 mb-8 inline-block capitalize'>
-                            {category.replace(/-/g, ' ')}
-                        </h1>
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                            <h1 className='text-3xl font-bold text-amazon-blue border-b-2 border-amazon-yellow pb-2 inline-block capitalize'>
+                                {category.replace(/-/g, ' ')}
+                            </h1>
+                            <Link to="/" className="text-amazon-blue hover:text-amazon-yellow font-bold flex items-center transition-colors">
+                                <i className="fa fa-arrow-left mr-2"></i> Browse All Categories
+                            </Link>
+                        </div>
 
                         {loading ? (
                             <div className="flex justify-center items-center h-64">
